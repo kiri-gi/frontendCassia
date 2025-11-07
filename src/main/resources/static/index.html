@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Produtos - Sistema Distribuído</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📦 Sistema de Gerenciamento de Produtos</h1>
+            <p>Demonstração de CRUD completo - Sistemas Distribuídos</p>
+        </header>
+
+        <!-- Formulário para cadastrar/editar produtos -->
+        <section class="form-section">
+            <h2 id="form-title">Cadastrar Novo Produto</h2>
+            <form id="produtoForm">
+                <input type="hidden" id="produtoId">
+                <div class="form-group">
+                    <label for="nome">Nome do Produto:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="preco">Preço (R$):</label>
+                    <input type="number" id="preco" name="preco" step="0.01" min="0" required>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" id="btnSalvar">Cadastrar Produto</button>
+                    <button type="button" id="btnCancelar" style="display: none;">Cancelar Edição</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Lista de produtos -->
+        <section class="list-section">
+            <h2>📋 Produtos Cadastrados</h2>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Buscar produto...">
+                <button onclick="buscarProdutos()">🔍 Buscar</button>
+            </div>
+            <div id="loading" class="loading" style="display: none;">
+                Carregando produtos...
+            </div>
+            <div id="produtosList" class="produtos-list">
+                <!-- Os produtos serão carregados aqui via JavaScript -->
+            </div>
+        </section>
+
+        <!-- Modal para confirmação -->
+        <div id="confirmModal" class="modal">
+            <div class="modal-content">
+                <h3>Confirmação</h3>
+                <p id="confirmMessage">Tem certeza que deseja excluir este produto?</p>
+                <div class="modal-buttons">
+                    <button id="confirmYes" class="btn-danger">Sim</button>
+                    <button id="confirmNo">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
